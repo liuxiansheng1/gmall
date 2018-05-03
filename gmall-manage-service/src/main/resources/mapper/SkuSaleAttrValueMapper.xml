@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liujie.gmall.manageservice.mapper.SkuSaleAttrValueMapper" >
+    <select id="selectSkuSaleAttrValueListBySpu" parameterType="long" resultMap="saleAttrValueMap">
+    SELECT DISTINCT sale_attr_value_id,sku_id,sale_attr_value_name
+FROM  sku_sale_attr_value se,sku_info sk WHERE se.sku_id
+ AND sk.spu_id=#{spuId} ORDER BY se.sku_id , se.sale_attr_id
+
+    </select>
+<resultMap id="saleAttrValueMap" type="com.liujie.gmall.SkuSaleAttrValue" autoMapping="true">
+        <result property="id" column="id"></result>
+
+</resultMap>
+
+</mapper>
